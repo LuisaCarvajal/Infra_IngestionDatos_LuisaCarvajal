@@ -28,9 +28,9 @@ jobs:
       - name: paso4 - instalar dependencias
         run: pip install -e .
       - name: paso5 - Ejecutar ingestion
-        run: python src/bigdata/ingestion.py 
+        run: python src/BigData/ingestion.py 
       - name: paso6 - Ejecutar Auditoria
-        run: python src/bigdata/auditoria.py
+        run: python src/BigData/audit_script.py
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
