@@ -1,5 +1,5 @@
 Informe de Auditoría de Ingesta de Datos
 ========================================
 Registros obtenidos de la API: 49
-Registros en la base de datos: 343
-Diferencia en la cantidad de registros.
+Registros en la base de datos: 441
+Diferencia en la cantidad de registros. 392

@@ -40,6 +40,6 @@ with open(AUDIT_PATH, "w") as file:
     if count_api == count_db:
         file.write("La cantidad de registros coincide.\n")
     else:
-        file.write("Diferencia en la cantidad de registros.\n")
+        file.write(f"Diferencia en la cantidad de registros. {abs(count_api - count_db)}\n")
 
 print(f"Archivo de auditoría generado en: {AUDIT_PATH}")
