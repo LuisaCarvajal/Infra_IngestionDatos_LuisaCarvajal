@@ -1,34 +1,81 @@
 import requests
-import json
+import sqlite3
+import pandas as pd
+import os
 
-def obtener_datos_api(url, fruta=None):
-    """Consulta la API de Fruityvice.
-    
-    - Si se proporciona una fruta, devuelve los datos de esa fruta.
-    - Si no se proporciona, devuelve la lista completa de frutas.
-    """
-    if fruta:
-        url = f"{url}/{fruta}"  # Construye la URL con el nombre de la fruta
-    else:
-        url = f"{url}/all"  # Endpoint correcto para obtener todas las frutas
-    
+# Definir la URL de la API
+API_URL = "https://www.fruityvice.com/api/fruit/all"
+
+# Definir la ruta de la base de datos SQLite
+DB_PATH = "src/BigData/static/db/ingestion.db"
+CSV_PATH = "src/BigData/static/xlsx/ingestion.csv"
+
+def obtener_datos_api():
+    """Obtiene los datos de la API y los devuelve en formato JSON."""
     try:
-        response = requests.get(url)
-        response.raise_for_status()  # Verificar si la solicitud fue exitosa
-        return response.json()
+        response = requests.get(API_URL)
+        response.raise_for_status()
+        data = response.json()
+        return data
     except requests.exceptions.RequestException as error:
-        print(f"Error en la consulta: {error}")
-        return {}
+        print(f"Error al obtener datos de la API: {error}")
+        return []   
 
-# URL base de la API
-url_base = "https://www.fruityvice.com/api/fruit"
+    
+def crear_base_datos():
+    print(f"Ruta de la base de datos: {DB_PATH}")
 
-# Prueba con una fruta específica (ejemplo: "apple")
-nombre_fruta = "Banana"  # Cambiar a "apple" u otra fruta si se desea
-datos = obtener_datos_api(url_base, nombre_fruta)
+    """Crea la base de datos y la tabla si no existen."""
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS frutas (
+                id INTEGER PRIMARY KEY,
+                nombre TEXT,
+                familia TEXT,
+                orden TEXT,
+                carbohidratos REAL,
+                proteinas REAL,
+                grasas REAL,
+                calorias REAL,
+                azucar REAL
+            )
+        ''')
+        conn.commit()
 
-# Imprimir resultados
-if datos:
-    print(json.dumps(datos, indent=4))
-else:
-    print("No se obtuvo información.")
+def insertar_datos(datos):
+    """Inserta los datos obtenidos en la base de datos."""
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        for fruta in datos:
+            cursor.execute('''
+                INSERT INTO frutas (nombre, familia, orden, carbohidratos, proteinas, grasas, calorias, azucar)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                fruta["name"], 
+                fruta["family"], 
+                fruta["order"], 
+                fruta["nutritions"]["carbohydrates"], 
+                fruta["nutritions"]["protein"], 
+                fruta["nutritions"]["fat"], 
+                fruta["nutritions"]["calories"], 
+                fruta["nutritions"]["sugar"]
+            ))
+        conn.commit()
+
+def generar_csv():
+    """Exporta los datos a un archivo CSV."""
+    with sqlite3.connect(DB_PATH) as conn:
+        df = pd.read_sql_query("SELECT * FROM frutas", conn)
+        df.to_csv(CSV_PATH, index=False)
+        print(f"Archivo CSV generado: {CSV_PATH}")
+
+if __name__ == "__main__":
+    crear_base_datos()
+    datos = obtener_datos_api()
+    if datos:
+        insertar_datos(datos)
+        generar_csv()
+        print("Proceso de ingesta completado con éxito.")
+    else:
+        print("No se encontraron datos para insertar.")
