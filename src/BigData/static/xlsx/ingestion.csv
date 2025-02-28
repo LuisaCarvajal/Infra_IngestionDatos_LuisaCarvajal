@@ -587,3 +587,52 @@ id,nombre,familia,orden,carbohidratos,proteinas,grasas,calorias,azucar
 586,Papaya,Caricaceae,Brassicales,5.8,0.5,0.3,39.0,4.4
 587,Annona,Annonaceae,Rosales,19.1,1.5,0.29,92.0,3.4
 588,Ceylon Gooseberry,Salicaceae,Malpighiales,9.6,1.2,0.3,47.0,8.1
+589,Persimmon,Ebenaceae,Rosales,18.0,0.0,0.0,81.0,18.0
+590,Strawberry,Rosaceae,Rosales,5.5,0.8,0.4,29.0,5.4
+591,Banana,Musaceae,Zingiberales,22.0,1.0,0.2,96.0,17.2
+592,Tomato,Solanaceae,Solanales,3.9,0.9,0.2,74.0,2.6
+593,Pear,Rosaceae,Rosales,15.0,0.4,0.1,57.0,10.0
+594,Durian,Malvaceae,Malvales,27.1,1.5,5.3,147.0,6.75
+595,Blackberry,Rosaceae,Rosales,9.0,1.3,0.4,40.0,4.5
+596,Lingonberry,Ericaceae,Ericales,11.3,0.75,0.34,50.0,5.74
+597,Kiwi,Actinidiaceae,Struthioniformes,15.0,1.1,0.5,61.0,9.0
+598,Lychee,Sapindaceae,Sapindales,17.0,0.8,0.44,66.0,15.0
+599,Pineapple,Bromeliaceae,Poales,13.12,0.54,0.12,50.0,9.85
+600,Fig,Moraceae,Rosales,19.0,0.8,0.3,74.0,16.0
+601,Gooseberry,Grossulariaceae,Saxifragales,10.0,0.9,0.6,44.0,0.0
+602,Passionfruit,Passifloraceae,Malpighiales,22.4,2.2,0.7,97.0,11.2
+603,Plum,Rosaceae,Rosales,11.4,0.7,0.28,46.0,9.92
+604,Orange,Rutaceae,Sapindales,8.3,1.0,0.2,43.0,8.2
+605,GreenApple,Rosaceae,Rosales,3.1,0.4,0.1,21.0,6.4
+606,Raspberry,Rosaceae,Rosales,12.0,1.2,0.7,53.0,4.4
+607,Watermelon,Cucurbitaceae,Cucurbitales,8.0,0.6,0.2,30.0,6.0
+608,Lemon,Rutaceae,Sapindales,9.0,1.1,0.3,29.0,2.5
+609,Mango,Anacardiaceae,Sapindales,15.0,0.82,0.38,60.0,13.7
+610,Blueberry,Rosaceae,Rosales,5.5,0.0,0.4,29.0,5.4
+611,Apple,Rosaceae,Rosales,11.4,0.3,0.4,52.0,10.3
+612,Guava,Myrtaceae,Myrtales,14.0,2.6,1.0,68.0,9.0
+613,Apricot,Rosaceae,Rosales,3.9,0.5,0.1,15.0,3.2
+614,Melon,Cucurbitaceae,Cucurbitaceae,8.0,0.0,0.0,34.0,8.0
+615,Tangerine,Rutaceae,Sapindales,8.3,0.0,0.4,45.0,9.1
+616,Pitahaya,Cactaceae,Caryophyllales,7.0,1.0,0.4,36.0,3.0
+617,Lime,Rutaceae,Sapindales,8.4,0.3,0.1,25.0,1.7
+618,Pomegranate,Lythraceae,Myrtales,18.7,1.7,1.2,83.0,13.7
+619,Dragonfruit,Cactaceae,Caryophyllales,9.0,9.0,1.5,60.0,8.0
+620,Grape,Vitaceae,Vitales,18.1,0.72,0.16,69.0,16.0
+621,Morus,Moraceae,Rosales,9.8,1.44,0.39,43.0,8.1
+622,Feijoa,Myrtaceae,Myrtoideae,8.0,0.6,0.4,44.0,3.0
+623,Avocado,Lauraceae,Laurales,8.53,2.0,14.66,160.0,0.66
+624,Kiwifruit,Actinidiaceae,Ericales,14.6,1.14,0.5,61.0,8.9
+625,Cranberry,Ericaceae,Ericales,12.2,0.4,0.1,46.0,4.0
+626,Cherry,Rosaceae,Rosales,12.0,1.0,0.3,50.0,8.0
+627,Peach,Rosaceae,Rosales,9.5,0.9,0.25,39.0,8.4
+628,Jackfruit,Moraceae,Rosales,23.2,1.72,0.0,95.0,19.1
+629,Horned Melon,Cucurbitaceae,Cucurbitales,7.56,1.78,1.26,44.0,0.5
+630,Hazelnut,Betulaceae,Fagales,17.0,15.0,61.0,628.0,4.3
+631,Pomelo,Rutaceae,Sapindales,9.67,0.82,0.0,37.0,8.5
+632,Mangosteen,Clusiaceae,Malpighiales,17.91,0.41,0.58,73.0,16.11
+633,Pumpkin,Cucurbitaceae,Cucurbitales,4.6,1.1,0.3,25.0,3.3
+634,Japanese Persimmon, Ebenaceae, Ericales,19.0,0.6,0.2,70.0,13.0
+635,Papaya,Caricaceae,Brassicales,5.8,0.5,0.3,39.0,4.4
+636,Annona,Annonaceae,Rosales,19.1,1.5,0.29,92.0,3.4
+637,Ceylon Gooseberry,Salicaceae,Malpighiales,9.6,1.2,0.3,47.0,8.1
