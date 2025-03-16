@@ -31,6 +31,10 @@ jobs:
         run: python src/BigData/ingestion.py 
       - name: paso6 - Ejecutar Auditoria
         run: python src/BigData/audit_script.py
+      - name: paso7 - Ejecutar datos sucios
+        run: python src/BigData/data_sucio.py
+      - name: paso8 - Ejecutar Limpieza
+        run: python src/BigData/cleaning.py
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5

@@ -15,22 +15,18 @@ def obtener_datos_api():
     try:
         response = requests.get(API_URL)
         response.raise_for_status()
-        data = response.json()
-        return data
+        return response.json()
     except requests.exceptions.RequestException as error:
         print(f"Error al obtener datos de la API: {error}")
-        return []   
+        return []
 
-    
 def crear_base_datos():
-    print(f"Ruta de la base de datos: {DB_PATH}")
-
     """Crea la base de datos y la tabla si no existen."""
     with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS frutas (
-                id INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 nombre TEXT,
                 familia TEXT,
                 orden TEXT,
@@ -42,6 +38,15 @@ def crear_base_datos():
             )
         ''')
         conn.commit()
+    print("Base de datos y tabla verificadas.")
+
+def limpiar_tabla():
+    """Elimina los datos previos de la tabla antes de insertar nuevos registros."""
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM frutas")  # Elimina los registros sin borrar la estructura
+        conn.commit()
+    print("tabla lista para nuevos datos.")
 
 def insertar_datos(datos):
     """Inserta los datos obtenidos en la base de datos."""
@@ -62,20 +67,23 @@ def insertar_datos(datos):
                 fruta["nutritions"]["sugar"]
             ))
         conn.commit()
+    print(" Datos insertados correctamente.")
 
 def generar_csv():
     """Exporta los datos a un archivo CSV."""
     with sqlite3.connect(DB_PATH) as conn:
         df = pd.read_sql_query("SELECT * FROM frutas", conn)
         df.to_csv(CSV_PATH, index=False)
-        print(f"Archivo CSV generado: {CSV_PATH}")
+    print(f" Archivo CSV generado: {CSV_PATH}")
 
 if __name__ == "__main__":
-    crear_base_datos()
+    crear_base_datos()  # Verifica si la tabla existe
+    limpiar_tabla()  # Elimina registros previos
     datos = obtener_datos_api()
+    
     if datos:
         insertar_datos(datos)
         generar_csv()
-        print("Proceso de ingesta completado con éxito.")
+        print("Proceso de ingesta completada con éxito.")
     else:
         print("No se encontraron datos para insertar.")
