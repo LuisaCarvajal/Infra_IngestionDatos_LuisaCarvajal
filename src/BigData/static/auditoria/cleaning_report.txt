@@ -8,3 +8,8 @@
 2025-03-16 18:39:50,543 - INFO - Registros duplicados: 20
 2025-03-16 18:39:50,543 - INFO - Registros después de la limpieza: 199
 2025-03-16 18:39:50,543 - INFO - Archivo cleaned_data.csv generado correctamente.
+2025-03-17 00:48:19,821 - INFO - Registros iniciales: 219
+2025-03-17 00:48:19,821 - INFO - Valores nulos detectados: 105
+2025-03-17 00:48:19,821 - INFO - Registros duplicados: 20
+2025-03-17 00:48:19,821 - INFO - Registros después de la limpieza: 199
+2025-03-17 00:48:19,821 - INFO - Archivo cleaned_data.csv generado correctamente.
