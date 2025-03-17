@@ -4,6 +4,7 @@
 # Autores:
 Valentina Ayala Zapata
 Luisa A. Carvajal Mazo
+Hugo A. Carvajal
 
 Clonar el repositorio desde https://github.com/LuisaCarvajal/Infra_IngestionDatos_LuisaCarvajal.git 
  
@@ -33,5 +34,5 @@ Clonar el repositorio desde https://github.com/LuisaCarvajal/Infra_IngestionDato
 # NOTA IMPORTANTE:
 Despues de hacer git push al repositorio remoto es muy importante si se va a trabajar en codigo local que se bajen los cambios del remoto al local para evitar divergencias en las ramas. Una vez hecho los cambios y sincronizada las ramas, puede hacer nuevamente git push. Esto debido a que el workflows ejecuta comandos que escriben archivos del repositorio y estos archivos no estan ignorados para git. 
 
-pico y chao.
+
 
