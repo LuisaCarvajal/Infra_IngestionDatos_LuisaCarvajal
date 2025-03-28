@@ -59,15 +59,29 @@ for fruit in fruits_data:
         }
         merged_data.append(data_entry)
 
-# Guardar los datos en CSV si hay datos disponibles
-if merged_data:
-    df = pd.DataFrame(merged_data)
+# Crear DataFrame
+df = pd.DataFrame(merged_data)
+
+# Auditoría del cruce de datos
+total_combined = len(df)
+total_with_recipes = df[df["Receta Relacionada"] != "No disponible"].shape[0]
+total_without_recipes = total_combined - total_with_recipes
+
+# Generar reporte en TXT
+audit_report = (
+    f"Total de registros combinados: {total_combined}\n"
+    f"Registros con recetas disponibles: {total_with_recipes}\n"
+    f"Registros sin recetas disponibles: {total_without_recipes}\n"
+)
+
+# Guardar CSV si hay datos disponibles
+if not df.empty:
     df.to_csv("src/BigData/static/xlsx/enriched_data.csv", index=False)
 
-    # Generar el reporte en TXT
     with open("src/BigData/static/auditoria/enriched_report.txt", "w") as report:
         report.write("Reporte de Integración de Datos\n")
         report.write("=" * 40 + "\n")
+        report.write(audit_report + "\n")
         for item in merged_data:
             report.write(f"Fruta: {item['Fruta']}\n")
             report.write(f" - Familia: {item['Familia']}\n")
@@ -76,3 +90,5 @@ if merged_data:
             report.write(f" - Receta Relacionada: {item['Receta Relacionada']}\n")
             report.write(f" - Instrucciones de Receta: {item['Instrucciones de Receta']}\n")
             report.write("=" * 40 + "\n")
+
+print("Auditoría completada. Datos guardados.")

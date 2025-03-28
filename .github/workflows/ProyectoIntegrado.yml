@@ -36,7 +36,7 @@ jobs:
       - name: paso8 - Ejecutar Limpieza
         run: python src/BigData/cleaning.py
       - name: paso9 - Ejecutar enrequecimiento
-        run: python src/BigData/enriched.py
+        run: python src/BigData/enrichment.py
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5

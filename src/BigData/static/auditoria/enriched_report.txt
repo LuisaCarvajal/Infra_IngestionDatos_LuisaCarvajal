@@ -1,5 +1,9 @@
 Reporte de Integración de Datos
 ========================================
+Total de registros combinados: 15
+Registros con recetas disponibles: 15
+Registros sin recetas disponibles: 0
+
 Fruta: Strawberry
  - Familia: Rosaceae
  - Orden: Rosales
